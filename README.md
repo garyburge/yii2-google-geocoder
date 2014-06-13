@@ -3,8 +3,6 @@ yii2-google-maps-geocoder
 
 ## Installation
 
-``composer.json``
-
 ```json
 {
     "require": {
