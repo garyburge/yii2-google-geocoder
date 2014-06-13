@@ -3,7 +3,7 @@ yii2-google-maps-geocoder
 
 ## Installation
 
-``composer.json`` file.
+``composer.json``
 
 ```json
 {
