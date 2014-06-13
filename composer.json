@@ -1,0 +1,27 @@
+{
+    "name": "filsh/yii2-google-maps-geocoder",
+    "description": "Google maps geocoder for Yii2",
+    "keywords": ["yii", "extension"],
+    "homepage": "https://github.com/filsh/yii2-google-maps-geocoder",
+    "type": "yii2-extension",
+    "license": "MIT",
+    "support": {
+        "email": "imaliy.filsh@gmail.com",
+        "source": "https://github.com/filsh/yii2-google-maps-geocoder"
+    },
+    "authors": [
+        {
+            "name": "Igor Maliy",
+            "email": "imaliy.filsh@gmail.com"
+        }
+    ],
+    "require": {
+        "yiisoft/yii2": "*",
+        "jstayton/google-maps-geocoder": "dev-master"
+    },
+    "autoload": {
+        "psr-4": {
+            "filsh\\yii2\\googleMapsGeocoder\\": ""
+        }
+    }
+}
