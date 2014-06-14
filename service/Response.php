@@ -77,4 +77,13 @@ class Response extends Object
         }
         return new DataIterator($this->getItemClass(), $this->body['results']);
     }
+    
+    /**
+     * Returns success status
+     * @return boolean
+     */
+    public function isSuccess()
+    {
+        return in_array($this->getStatus(), [\GoogleMapsGeocoder::STATUS_SUCCESS, \GoogleMapsGeocoder::STATUS_NO_RESULTS]);
+    }
 }

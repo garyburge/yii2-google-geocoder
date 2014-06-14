@@ -36,11 +36,18 @@ class Geocoder extends \yii\base\Component
         $body = Json::decode($this->_service->geocode($https, true), true);
         $this->_service->setFormat($format);
         
-        return Yii::createObject([
+        /* @var $response \filsh\yii2\googleGeocoder\service\Response */
+        $response = Yii::createObject([
             'class' => '\filsh\yii2\googleGeocoder\service\Response',
             'itemClass' => $this->resultClass,
             'rawBody' => $body
         ]);
+        
+        if(!$response->isSuccess()) {
+            throw new \RuntimeException('Invalid request.');
+        }
+        
+        return $response;
     }
     
     /**
