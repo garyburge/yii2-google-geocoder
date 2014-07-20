@@ -13,32 +13,37 @@ class Geocoder extends \yii\base\Component
     
     public $format = self::FORMAT_OBJECT;
     
+    public $responseClass = '\filsh\yii2\googleGeocoder\service\Response';
+    
     public $resultClass = '\filsh\yii2\googleGeocoder\resources\Result';
     
     private $_service;
     
-    public function init()
+    public function getService()
     {
-        parent::init();
-        $this->_service = (new \GoogleMapsGeocoder())
+        if($this->_service === null) {
+            $this->_service = (new \GoogleMapsGeocoder())
                 ->setClientId($this->clientId)
                 ->setFormat($this->format);
+        }
+        return $this->_service;
     }
     
     public function geocode($https = false, $raw = false)
     {
+        $service = $this->getService();
         if(!$this->isFormatObject()) {
-            return $this->_service->geocode($https, $raw);
+            return $service->geocode($https, $raw);
         }
         
-        $format = $this->_service->getFormat();
-        $this->_service->setFormat(\GoogleMapsGeocoder::FORMAT_JSON);
-        $body = Json::decode($this->_service->geocode($https, true), true);
-        $this->_service->setFormat($format);
+        $format = $service->getFormat();
+        $service->setFormat(\GoogleMapsGeocoder::FORMAT_JSON);
+        $body = Json::decode($service->geocode($https, true), true);
+        $service->setFormat($format);
         
         /* @var $response \filsh\yii2\googleGeocoder\service\Response */
         $response = Yii::createObject([
-            'class' => '\filsh\yii2\googleGeocoder\service\Response',
+            'class' => $this->responseClass,
             'itemClass' => $this->resultClass,
             'rawBody' => $body
         ]);
@@ -56,13 +61,13 @@ class Geocoder extends \yii\base\Component
      */
     public function isFormatObject()
     {
-      return $this->_service->getFormat() == self::FORMAT_OBJECT;
+      return $this->getService()->getFormat() == self::FORMAT_OBJECT;
     }
     
     public function __call($name, $params)
     {
-        if(method_exists($this->_service, $name)) {
-            call_user_func_array([$this->_service, $name], $params);
+        if(method_exists($this->getService(), $name)) {
+            call_user_func_array([$this->getService(), $name], $params);
             return $this;
         } else {
             return parent::__call($name, $params);
