@@ -2,7 +2,7 @@
     "name": "garyburge/yii2-google-geocoder",
     "description": "Google geocoder for Yii2",
     "keywords": ["yii", "extension"],
-    "homepage": "https://github.com/filsh/yii2-google-geocoder",
+    "homepage": "https://github.com/garyburge/yii2-google-geocoder",
     "type": "yii2-extension",
     "license": "MIT",
     "support": {
