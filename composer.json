@@ -17,7 +17,7 @@
     ],
     "require": {
         "yiisoft/yii2": "*",
-        "jstayton/GoogleMapsGeocoder": "dev-master"
+        "jstayton/GoogleMapsGeocoder": "*"
     },
     "autoload": {
         "psr-4": {
