@@ -15,7 +15,14 @@
             "email": "imaliy.filsh@gmail.com"
         }
     ],
+    "repositories": [
+        {
+            "type": "git",
+            "url": "https://github.com/garyburge/GoogleMapsGeocoder"
+        }
+    ],
     "require": {
+        "garyburge/GoogleMapsGeocoder": "*",
         "yiisoft/yii2": "*"
     },
     "autoload": {
