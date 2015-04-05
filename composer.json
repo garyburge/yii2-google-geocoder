@@ -15,10 +15,9 @@
             "email": "imaliy.filsh@gmail.com"
         }
     ],
-    "minimum-stability": "dev",
     "require": {
         "yiisoft/yii2": "*",
-        "jstayton/GoogleMapsGeocoder": "*@dev"
+        "jstayton/GoogleMapsGeocoder": "*"
     },
     "autoload": {
         "psr-4": {
