@@ -8,7 +8,7 @@ A fork of filsh/yii2-google-geocoder to correct github.com urls
 ```json
 {
     "require": {
-       "filsh/yii2-google-geocoder": "dev-master"
+       "garyburge/yii2-google-geocoder": "dev-master"
     }
 }
 ```
